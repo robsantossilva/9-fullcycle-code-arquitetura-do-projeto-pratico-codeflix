@@ -60,4 +60,18 @@
     - Evitaremos ao máximo o Lock-in nos cloud providers, logo, Amazon SQS e similares foram descartados
     - Não há uma verdade única sobre a escolha realizada
 
-**Resiliência e self healing**    
+**Resiliência e self healing**
+- Para garantir resiliência caso um ou mais microsserviços fiquem fora do ar, as filas serão essenciais
+- Caso uma mensagem venha em um padrão não esperado para determinado microsserviço, o microsserviço poderá rejeitá-la e automaticamente a mesma poderpa ser encaminhada para uma dead-letter queue.
+- Pelo fato do Kubernetes e Istio possuitem recursos de Circuit Breaker, Liveness e Readiness probes:
+    - Se um container tiver um crash, automaticamente ele será reiniciado ou mesmo recriado
+    - Caso um container não aguente determinado tráfego, temos a opção de trabalhar com Circuit Breaker para impedir que ele receba mais requisições enquanto está se "curando"
+
+**Autenticação**
+- Serviço centralizador de identidade opensource: KEYCLOAK
+- OpenID Connect
+- Customização do tema
+  - Utilização do create-react-app
+- Compartilhamento de chave pública com os serviços para verificação de autenticação dos tokens
+- Diversos tipos de ACL
+- Flow de autenticação para frontend e backend
