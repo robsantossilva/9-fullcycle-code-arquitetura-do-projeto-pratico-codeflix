@@ -51,3 +51,13 @@
 - Eventualmente um microsserviço poderá persistir dados já existentes em outro microsserviço em seu banco de dados
 - Essa duplicação ocorre para deixar o microsserviço mais autônomo possivel
 - O microsserviço duplicará apenas os dados necessários para seu contexto
+
+**Mensageria**
+- Como grande parte da comunicação entre os microsserviços é assíncrona, um sistema de mensageria é necessário
+- O RabbitMQ foi escolhido para esse caso
+- Por que não o Apache Kafka ou Amazon SQS, entre outros?
+    - Apache Kafka também poderia ser utilizado nesse caso, por outro lado, muitos recursos que ele poderia prover não seriam utilizados
+    - Evitaremos ao máximo o Lock-in nos cloud providers, logo, Amazon SQS e similares foram descartados
+    - Não há uma verdade única sobre a escolha realizada
+
+**Resiliência e self healing**    
