@@ -75,3 +75,6 @@
 - Compartilhamento de chave pública com os serviços para verificação de autenticação dos tokens
 - Diversos tipos de ACL
 - Flow de autenticação para frontend e backend
+
+### Microsserviços
+- Admin Catálogo de Video (Backend com Laravel)
