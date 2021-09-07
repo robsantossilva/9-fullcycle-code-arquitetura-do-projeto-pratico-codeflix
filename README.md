@@ -78,3 +78,119 @@
 
 ### Microsserviços
 - Admin Catálogo de Video (Backend com Laravel)
+- Admin Catálogo de Videos (Frontend com React)
+- Encoder e Vídeo com Golang
+- API do Catálogo (Backend com Node.js)
+- Aplicação do Catálogo (Frontend com React.js)
+- Assinatura do Codeflix pelo cliente (Python com Django)
+- Autenticação entre Microsserviços com Keycloak
+- Comunicação assíncrona entre os Microsserviços com RabbitMQ
+
+##### Catálogo de vídeos
+![](./.github/catalogo-de-videos.png)
+
+##### Encoder de vídeos
+![](./.github/encoder-de-videos.png)
+
+##### API/App do Catálogo
+![](./.github/api-app-do-catalogo.png)
+
+##### Assinatura do CodeFlix
+![](./.github/assinatura-do-codeflix.png)
+
+##### Dinâmica geral dos microsserviços
+![](./.github/dinamica-geral.png)
+
+### Teste
+- Unidade
+- Integração
+- End-to-end
+- Selenium/frontend
+- Upload
+
+### Autenticação
+![](./.github/autenticacao.png)
+
+
+##### Como os microsserviços se autenticam?
+![](./.github/como-os-ms-se-autenticam.png)
+
+**Qual o grande problema dessa abordagem?**
+A cada requisição, o backend precisa validar o JWT no Keycloak.
+
+Resolução:
+![](./.github/key-private-and-public.png)
+
+### Ambiente de desenvolvimento
+- Docker é o protagonista do ambiente de desenvolvimento
+- Permite a rápida criação do ambiente
+- Garante que os ambientes serão exatamente os mesmos
+- Facilita a criação de recursos periféricos como banco de dados, RabbitMQ, etc
+- Geração de imagens para o ambiente de produção
+
+### CI/CD
+- Para cada pull request gerada em uma aplicação, iniciaremos o processo de CI
+- Github Actions
+- O processo de CI será capaz de:
+  - Subir a aplicação usando Docker
+  - Executar os testes
+  - Utilizar o Sonarqube
+- No caso de acontecer o "merge" da Pull Request, o processo de CD acontece
+- Fará a geração da imagem Docker
+- Realizará o upload da imagem em um container registry
+- Executará o deploy no Kubernetes
+
+### Kubernetes
+- Cluster Kubernetes gerenciado
+- O deploy da aplicação
+- Startup, Readiness e Liveness Probe para self healing
+- Horizontal Pod Autoscaler (HPA) para escalar horizontalmente a aplicação
+- TLS/SSL com cert-manager
+- Kubelens para ter uma visão geral do Cluster
+
+### Service Mash
+- Istio
+- Gerenciamento de tráfego
+  - Virtual Service
+  - Ingress Gateway
+  - Envoy Sidecar Proxy
+  - Circuit Breaking
+  - Requests Timeout
+- TLS/SSL com cert-manager
+
+### Cloud Providers
+- Providers
+  - AWS
+  - GCP
+  - Azure
+- Importante
+  - Isso não é um curso de cloud computing/providers
+  - Utilizaremos os recursos necessários para que possamos realizar o deploy das aplicações
+  - A idéia é deixar o aluno familiarizado com os providers
+
+### Observabilidade
+- Métricas
+- Logs
+- Tracing/APM (Rastreabilidade)
+
+##### Métricas
+- Prometheus/Grafana
+- Elastic Stack
+
+##### Logs
+- Elastic Stack
+  - Elastic Search
+  - Beats
+  - Kibana
+
+##### Tracing/APM
+- Elastic Stack
+  - Elastic Search
+  - Beats
+  - Kibana
+  - APM
+
+##### Service Map
+- Elastc
+- Kiali
+  
