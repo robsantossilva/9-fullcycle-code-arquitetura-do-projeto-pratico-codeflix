@@ -51,6 +51,7 @@
 - Eventualmente um microsserviço poderá persistir dados já existentes em outro microsserviço em seu banco de dados
 - Essa duplicação ocorre para deixar o microsserviço mais autônomo possivel
 - O microsserviço duplicará apenas os dados necessários para seu contexto
+- No caso da Codeflix utilizaremos o Kafka Connect como replicador de dados
 
 **Mensageria**
 - Como grande parte da comunicação entre os microsserviços é assíncrona, um sistema de mensageria é necessário
@@ -77,14 +78,15 @@
 - Flow de autenticação para frontend e backend
 
 ### Microsserviços
-- Admin Catálogo de Video (Backend com Laravel)
-- Admin Catálogo de Videos (Frontend com React)
+- Backend Admin do Catálogo de Video (Backend com Laravel)
+- Frontend Admin do Catálogo de Videos (Frontend com React)
 - Encoder e Vídeo com Golang
-- API do Catálogo (Backend com Node.js)
-- Aplicação do Catálogo (Frontend com React.js)
+- Backend API do Catálogo (Backend com Node.js)
+- Frontend do Catálogo (Frontend com React.js)
 - Assinatura do Codeflix pelo cliente (Python com Django)
 - Autenticação entre Microsserviços com Keycloak
 - Comunicação assíncrona entre os Microsserviços com RabbitMQ
+- Replicação de dados utilizando Apache Kafka e Kafka Connect
 
 ##### Catálogo de vídeos
 ![](./.github/catalogo-de-videos.png)
